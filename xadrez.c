@@ -1,44 +1,10 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
 int main() {
-    // Nível Novato - Movimentação das Peças
 
-    /* Sugestão: Declare variáveis constantes para 
-    representar o número de casas que cada peça pode se mover.*/
-    
-    // Implementação de Movimentação do Bispo
-    /* Sugestão: Utilize uma estrutura de repetição
-     para simular a movimentação do Bispo em diagonal.*/
-
-    // Implementação de Movimentação da Torre
-    /*Sugestão: Utilize uma estrutura de repetição para simular
-     a movimentação da Torre para a direita.*/
-
-    // Implementação de Movimentação da Rainha    
-    /* Sugestão: Utilize uma estrutura de repetição
-     para simular a movimentação da Rainha para a esquerda.*/
-
-    /*Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular
-     a movimentação do Cavalo em L.*/
-
-    // Um loop pode representar a movimentação horizontal e outro vertical.
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    /* Sugestão: Implemente a movimentação do 
-    Cavalo utilizando loops com variáveis múltiplas e condições avançadas.*/
-    // Inclua o uso de continue e break dentro dos loops.
-
-    int cima, baixo, esq, dir;
-    int opcao, movimento, i;
-
+    // Variáveis
+    int opcao, i;
+    // Ultilizando DO WHILE
     do
     {   
         printf("\n   *** Vamos    *** \n");
@@ -52,42 +18,61 @@ int main() {
         printf("\nEscolha Movimentar uma Peça: ");
         scanf("%d", &opcao);
 
+        //Menu Interativo Switch
         switch (opcao)
         {
         case 1:
+            printf("================================================\n");
             printf(" Você escolheu BISPO\n");
+            printf(" Bispo se move 5 casas Diagonal Superior Direita\n");
+            printf("================================================\n");
+
+            // Laço FOR para Movimentar Bispo
             for ( i = 1; i <= 5; i++)
             {
-                printf("Direita, Cima\n");
+                printf("%d Direita, Cima\n", i);
             }
-            
+            printf("=============================\n");
             break;
         
         case 2:
-            i = 1;
+            printf("=============================\n");
             printf(" Você escolheu TORRE\n");
+            printf(" Torre se move 5 casas a Direita\n");
+            printf("=============================\n");
+            // Laço de Repetição WHILE para Movimentar a TORRE
+            i = 1;
             while (i <= 5)
             {
-                printf("Direita\n");
+                printf("%d Direita\n", i);
                 i++;
             }
-            
+            printf("=============================\n");
         break;
 
-        case 3:
+        case 3:    
+            printf("=============================\n");
             printf(" Você escolheu RAINHA\n");
-        break;
-        
+            printf(" Rainha se move 8 casas a Esquerda\n");
+            printf("=============================\n");
+            i = 1;
+            // Laço de Repetição WHILE para Movimentar a Rainha
+            while (i <= 8)
+            {
+                printf("%d Esquerda\n", i);
+                i++;
+            }
+            printf("=============================\n");
+            break;
+        // Tratamento de erro
         default:
+        printf("===================================\n");
            printf("Opção Inválida! Tente novamente...\n");
+           printf("================================\n");
             break;
         }
 
-
-
     } while (opcao !=0);
     printf("Xadrez FINALIZADO !");
-    
-
     return 0;
 }
