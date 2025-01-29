@@ -3,7 +3,7 @@
 int main() {
 
     // Variáveis
-    int opcao, i;
+    int opcao, i, j;
     // Ultilizando DO WHILE
     do
     {   
@@ -13,6 +13,7 @@ int main() {
         printf("[1] BISPO\n");
         printf("[2] TORRE\n");
         printf("[3] RAINHA\n");
+        printf("[4] CAVALO\n");
         printf("[0] SAIR\n");
         printf("==============\n");
         printf("\nEscolha Movimentar uma Peça: ");
@@ -64,6 +65,26 @@ int main() {
             }
             printf("=============================\n");
             break;
+
+          case 4:    
+            printf("=============================\n");
+            printf(" Você escolheu CAVALO\n");
+            printf(" Cavalo se move em 'L' para Baixo(1x), Esquerda(3x)\n");
+            printf("=============================\n");
+            
+            // Laço de Repetição DO WHILE aninhado com FOR para Movimentar a Cavalo
+            do
+            {
+                j = 1;
+                printf("%d Baixo\n", j);
+                    for ( i = 1; i <= 3; i++)
+                    {
+                        printf("%d Esquerda\n", i);
+                    }
+                j++;                    
+            } while (j <= 1);
+            break;
+            
         // Tratamento de erro
         default:
         printf("===================================\n");
