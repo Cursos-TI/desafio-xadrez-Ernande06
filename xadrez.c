@@ -95,6 +95,10 @@ int main() {
                 moverCavalo();
                 printf("==================================================\n");
                 break;
+            
+            case 0:
+                // Não faz nada, apenas encerra o programa
+            break;
 
             default:
                 printf("===================================\n");
@@ -102,9 +106,8 @@ int main() {
                 printf("================================\n");
                 break;
         }
-
+        
     } while (opcao != 0);
-
     printf("Xadrez FINALIZADO !\n");
     return 0;
 }
