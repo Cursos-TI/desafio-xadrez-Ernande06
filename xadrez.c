@@ -1,12 +1,52 @@
 #include <stdio.h>
 
-int main() {
+// Função recursiva para movimentar o Bispo
+void moverBispo(int casa) {
+    if (casa > 5) {
+        return;
+    }
+    printf("%d Direita, Cima\n", casa);
+    moverBispo(casa + 1);
+}
 
-    // Variáveis
-    int opcao, i, j;
-    // Ultilizando DO WHILE
-    do
-    {   
+// Função recursiva para movimentar a Torre
+void moverTorre(int casa) {
+    if (casa > 5) {
+        return;
+    }
+    printf("%d Direita\n", casa);
+    moverTorre(casa + 1);
+}
+
+// Função recursiva para movimentar a Rainha
+void moverRainha(int casa) {
+    if (casa > 8) {
+        return;
+    }
+    printf("%d Esquerda\n", casa);
+    moverRainha(casa + 1);
+}
+
+// Função para movimentar o Cavalo com loops aninhados e condições múltiplas
+void moverCavalo() {
+    for (int i = 1; i <= 1; i++) {
+        printf("%d Cima\n", i);
+        for (int j = 1; j <= 3; j++) {
+            if (j == 2) {
+                continue; // Pula a segunda casa (exemplo de uso do continue)
+            }
+            printf("%d Direita\n", j);
+            if (j == 3) {
+                break;
+            }
+        }
+    }
+}
+
+int main() {
+    int opcao;
+
+    do {
         printf("\n   *** Vamos    *** \n");
         printf("--- Jogar Xadrez? ---\n");
         printf("==============\n");
@@ -19,81 +59,52 @@ int main() {
         printf("\nEscolha Movimentar uma Peça: ");
         scanf("%d", &opcao);
 
-        //Menu Interativo Switch
-        switch (opcao)
-        {
-        case 1:
-            printf("================================================\n");
-            printf(" Você escolheu BISPO\n");
-            printf(" Bispo se move 5 casas Diagonal Superior Direita\n");
-            printf("================================================\n");
+        switch (opcao) {
+            case 1:
+                printf("================================================\n");
+                printf(" Você escolheu BISPO\n");
+                printf(" Bispo se move 5 casas Diagonal Superior Direita\n");
+                printf("================================================\n");
+                moverBispo(1);
+                printf("=============================\n");
+                break;
 
-            // Laço FOR para Movimentar Bispo
-            for ( i = 1; i <= 5; i++)
-            {
-                printf("%d Direita, Cima\n", i);
-            }
-            printf("=============================\n");
-            break;
-        
-        case 2:
-            printf("=============================\n");
-            printf(" Você escolheu TORRE\n");
-            printf(" Torre se move 5 casas a Direita\n");
-            printf("=============================\n");
-            // Laço de Repetição WHILE para Movimentar a TORRE
-            i = 1;
-            while (i <= 5)
-            {
-                printf("%d Direita\n", i);
-                i++;
-            }
-            printf("=============================\n");
-        break;
+            case 2:
+                printf("=============================\n");
+                printf(" Você escolheu TORRE\n");
+                printf(" Torre se move 5 casas a Direita\n");
+                printf("=============================\n");
+                moverTorre(1);
+                printf("=============================\n");
+                break;
 
-        case 3:    
-            printf("=============================\n");
-            printf(" Você escolheu RAINHA\n");
-            printf(" Rainha se move 8 casas a Esquerda\n");
-            printf("=============================\n");
-            i = 1;
-            // Laço de Repetição WHILE para Movimentar a Rainha
-            while (i <= 8)
-            {
-                printf("%d Esquerda\n", i);
-                i++;
-            }
-            printf("=============================\n");
-            break;
+            case 3:
+                printf("=============================\n");
+                printf(" Você escolheu RAINHA\n");
+                printf(" Rainha se move 8 casas a Esquerda\n");
+                printf("=============================\n");
+                moverRainha(1);
+                printf("=============================\n");
+                break;
 
-          case 4:    
-            printf("=============================\n");
-            printf(" Você escolheu CAVALO\n");
-            printf(" Cavalo se move em 'L' para Baixo(1x), Esquerda(3x)\n");
-            printf("=============================\n");
-            
-            // Laço de Repetição DO WHILE aninhado com FOR para Movimentar a Cavalo
-            do
-            {
-                j = 1;
-                printf("%d Baixo\n", j);
-                    for ( i = 1; i <= 3; i++)
-                    {
-                        printf("%d Esquerda\n", i);
-                    }
-                j++;                    
-            } while (j <= 1);
-            break;
-            
-        // Tratamento de erro
-        default:
-        printf("===================================\n");
-           printf("Opção Inválida! Tente novamente...\n");
-           printf("================================\n");
-            break;
+            case 4:
+                printf("=================================================\n");
+                printf(" Você escolheu CAVALO\n");
+                printf(" Cavalo se move em 'L' para Cima(1x), Direita(2x)\n");
+                printf("==================================================\n");
+                moverCavalo();
+                printf("==================================================\n");
+                break;
+
+            default:
+                printf("===================================\n");
+                printf("Opção Inválida! Tente novamente...\n");
+                printf("================================\n");
+                break;
         }
 
-    } while (opcao !=0);
-    printf("Xadrez FINALIZADO !");
+    } while (opcao != 0);
+
+    printf("Xadrez FINALIZADO !\n");
     return 0;
 }
